@@ -1,0 +1,29 @@
+#!/usr/bin/python2
+import sys, os, time, glob
+
+for device in glob.glob('/sys/bus/iio/devices/iio:device*'):
+	if open(device + '/name').read() == 'accel_3d\n':
+		scale = float(open(device + '/in_accel_scale').read())
+		break
+
+if __name__ == '__main__':
+	x = open(device + '/in_accel_x_raw')
+	y = open(device + '/in_accel_y_raw')
+	try:
+		while True:
+			x.seek(0)
+			y.seek(0)
+			current_x = float(x.read()) * scale
+			current_y = float(y.read()) * scale
+			if current_y <= -7.0:
+				os.popen('xrandr -o normal')
+			elif current_y >= 7.0:
+				os.popen('xrandr -o inverted')
+			elif current_x >= 7.0:
+				os.popen('xrandr -o left')
+			elif current_x <= -7.0:
+				os.popen('xrandr -o right')
+			
+			time.sleep(1)
+	except KeyboardInterrupt:
+		sys.exit(0)

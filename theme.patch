@@ -1,0 +1,29 @@
+--- gnome-shell.css	2014-12-24 04:21:39.000000000 +0300
++++ gnome-shell.css	2015-02-26 14:32:53.563950820 +0300
+@@ -126,14 +126,14 @@
+ /* Slider */
+ 
+ .slider {
+-    height: 1em;
+-    -slider-height: 0.3em;
++    height: 2em;
++    -slider-height: 1.5em;
+     -slider-background-color: #333333;
+     -slider-border-color: #5f5f5f;
+     -slider-active-background-color: #76b0ec;
+     -slider-active-border-color: #1f6dbc;
+     -slider-border-width: 1px;
+-    -slider-handle-radius: 6px;
++    -slider-handle-radius: 9px;
+ }
+ 
+ /* PopupMenu */
+@@ -591,7 +591,7 @@
+ /* Panel */
+ 
+ #panel {
+-    background-color: black;
++    background-color: rgba(0,0,0,0.4);
+     font-weight: bold;
+     height: 1.86em;
+ }
