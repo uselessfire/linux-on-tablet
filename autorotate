@@ -1,5 +1,5 @@
 #!/usr/bin/python2
-import sys, os, time, glob
+import sys, os, gc, time, glob
 
 for device in glob.glob('/sys/bus/iio/devices/iio:device*'):
 	if open(device + '/name').read() == 'accel_3d\n':
